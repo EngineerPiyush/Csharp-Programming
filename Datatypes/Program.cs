@@ -14,6 +14,13 @@ class Program{
         Console.WriteLine(a);
         Console.WriteLine(b);
         Console.WriteLine(c);
+
+        string name = "Hello\"Piyush\"";
+        Console.WriteLine(name);
+        string path = "folder\\subFolder\\anotherFolder";
+        Console.WriteLine(path);
+        string filePath = @"C:\projects\C# programming\Portfolio"; // verbatim literal
+        Console.WriteLine(filePath);
         Console.ReadLine();
     }
 }
