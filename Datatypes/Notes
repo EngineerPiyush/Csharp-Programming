@@ -1,0 +1,188 @@
+Data Types in C Sharp ....
+
+What is a Bit?
+A bit is the smallest unit of data.
+A bit can store only
+0 or 1 That's it. Nothing else.
+Think of it like a light switch.
+OFF = 0 , ON = 1
+Note : 8 bits make - 1 Byte . Suppose we have : 10110010, 
+Count them - 1 0 1 1 0 0 1 0 , 8 bits = 1 byte .
+
+One Bit means only 1 value either 0 or 1 not 01 or 10 thease are two bits not one 
+Suppose you have just one box. [ ] It can store only 0 or 1
+Never 01 because 01 needs two places. Two Bits Now suppose you have two boxes.
+[ ] [ ] Each box can independently store 0 or 1 Let's see every possibility.
+00, First box = 0, Second box = 0 
+01, First box = 0, Second box = 1
+10, First box = 1, Second box = 0
+11, First box = 1, Second box = 1
+Notice something.
+Each individual box still stores only one value: 0 or 1
+But when we put two bits together, they create four different combinations.
+Three Bits 
+Now imagine three boxes. [ ] [ ] [ ]
+Each box again stores only 0 or 1
+Possible combinations become
+000
+001
+010
+011
+100
+101
+110
+111
+Total = 8 combinations.
+
+So, if n bits are there then total number of combination would be : 2^n
+
+1- INTEGERAL Data type 
+It can be dived into two categories. 
+(i) Signed Integers : means it can store only positive values.
+(ii) Unsigned Integers : means it can store both positive and negative values 
+
+Data Type   	Bytes	    Bits	    Signed?	    Range
+sbyte	        1	        8	        Yes	        -128 to 127
+byte	        1	        8	        No	        0 to 255
+short	        2	        16	        Yes	        -32,768 to 32,767
+ushort	        2	        16	        No	        0 to 65,535
+int	            4	        32	        Yes	        -2,147,483,648 to 2,147,483,647
+uint	        4	        32	        No	        0 to 4,294,967,295
+long	        8	        64	        Yes	        Very large positive and negative values
+ulong	        8	        64	        No	        Even larger positive values only
+
+So if int is taking 4 bytes space in memory it means it can store 8x4 = 32 bit in memory so the total possible 
+combination would be 2^32 4,294,967,296 possible values if it is unsigned called uint.
+Example : uint number = 25;
+The computer stores it as 00000000 00000000 00000000 00011001.
+and because the counting tarts from zero we do 2^32-1 and because 1 bit is use for sign in case of signed data type 
+we do 2^31 for positive numbers the count starts from zero and for negative numbers the count starts from -1 .
+That's why the range for int is -2,147,483,648 to 2,147,483,647 not ..........48 .
+Data Types the complete picture ...
+│
+├── Integral Types (Whole Numbers)
+│   │
+│   ├── Signed
+│   │   ├── sbyte (8 bits)
+│   │   ├── short (16 bits)
+│   │   ├── int (32 bits)
+│   │   └── long (64 bits)
+│   │
+│   └── Unsigned
+│       ├── byte (8 bits)
+│       ├── ushort (16 bits)
+│       ├── uint (32 bits)
+│       └── ulong (64 bits)
+│
+├── Floating Point Types
+│   ├── float
+│   ├── double
+│   └── decimal
+│
+├── Character
+│   └── char
+│
+├── Boolean
+│   └── bool
+│
+└── Text
+    └── string
+
+===========================================================================================================
+The **`float`** data type in C# is a **32-bit (4-byte)** floating-point type used to store numbers with decimal values.
+It provides approximately **7 significant digits of precision**, meaning the first 7 meaningful digits of a number 
+are stored accurately, regardless of the position of the decimal point. Because `float` follows the IEEE 754 floating-point 
+standard, some decimal values cannot be represented exactly, which may lead to small rounding errors. For higher precision,
+C# provides the **`double`** data type, which is **64-bit (8-byte)** and offers approximately **15–16 significant 
+digits of precision**, making it the default choice for most scientific and mathematical calculations.
+The **`decimal`** data type is **128-bit (16-byte)** and provides **28–29 significant digits of precision**. 
+It stores decimal values with much greater accuracy than `float` and `double`, making it the preferred choice 
+for financial, banking, and monetary calculations where precision is critical.
+
+Imagine you have a notebook that can only hold 7 digits.
+You can write 1234567 perfectly. You can also write 1.234567 perfectly. 
+You can also write 0.0001234567 perfectly.
+Because in every case, the notebook only needs to remember 7 important digits.
+It doesn't care where the decimal point is. Then what is the exponent doing? When you see 3.4 × 10^38
+The computer actually stores two things:
+The significant digits (called the mantissa or significand)
+The position of the decimal point (stored as an exponent)
+Just like scientific notation.
+Example 123456789 can be written as 1.23456789 × 10^8
+The computer stores 1.234567 (about 7 significant digits for float) and 10^8 separately.
+
+This is why float can represent very large and very small numbers even though it only keeps about 7 significant 
+digits accurate.
+
+============================================================================================================
+A string is a sequence (collection) of characters.
+Example:
+string name = "Piyush";
+In c# to write a character we use single quotes and for string double quotes are used.
+Is a string a primitive data type? No. 
+Unlike
+int
+float
+bool
+char
+string is actually a reference type (a class). That means it behaves differently in memory.
+We'll learn that when we study stack vs heap memory.
+For now, just remember:
+
+string
+│
+├── Built from characters
+├── Stores text
+└── Reference type
+
+Strings are immutable (Very Important)
+Suppose:
+string name = "Piyush";
+Now you write:
+name = "Rahul";
+Does the computer change ..
+Piyush into Rahul
+No.
+It creates a new string:
+
+Before
+
+name
+ │
+ ▼
+"Piyush"
+
+After
+
+name
+ │
+ ▼
+"Rahul"
+
+"Piyush" still exists until the Garbage Collector removes it.
+
+======================================================================================================
+What is an Escape Sequence?
+An escape sequence is a special character combination that begins with a backslash (\). It tells the compiler:
+"Don't treat the next character as ordinary text. Give it a special meaning."
+
+Verbatim String Literal....
+Now imagine writing a Windows path like this: "C:\\Users\\Piyush\\Desktop\\Projects\\Portfolio"
+Looks ugly, right? C# gives us Verbatim String Literals.
+Syntax :  @"..."
+The @ tells the compiler: "Treat everything inside as plain text."
+Example :
+string path = @"C:\Users\Piyush\Desktop\Projects";
+Output
+C:\Users\Piyush\Desktop\Projects
+
+Multi-line Strings 
+One of the biggest advantages of verbatim strings is writing multiple lines.
+string text = @"Hello
+Welcome
+To C#";
+Output :
+Hello
+Welcome
+To C#
+Without @, this would cause a compilation error.
