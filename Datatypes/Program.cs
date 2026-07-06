@@ -51,18 +51,45 @@ class Program{
 //              ▼
 //           decimal
 
-        int a = 24028488388;
-        float b = a;
-        Console.WriteLine(b);
-        sbyte c = 78;
-        byte d = c;
-        Console.WriteLine(d);
-        char x = 'P';
-        double y = x;
-        Console.WriteLine(y);
+        // int a = 240284388;
+        // float b = a;
+        // Console.WriteLine("After Conversation  "+b);
+        // sbyte c = 78;
+        // short d = c;
+        // Console.WriteLine("After Conversation  "+d);
+        // char x = 'P';
+        // double y = x;
+        // Console.WriteLine("After Conversation  "+y);
+
         // data type conversion explicit 
         // Explicit Casting (manually) - converting a larger type to a smaller size type
         // double -> float -> long -> int -> short -> byte or int -> char
+
+        // float a = 240284388;
+        // int b = (int)a;
+        // Console.WriteLine("After Conversation  "+b);
+        // double c = 78434727.954994;
+        // short d = (short)c;
+        // Console.WriteLine("After Conversation  "+d);
+        // char x = 'P';
+        // int y = (char)x;
+        // Console.WriteLine("After Conversation  "+y);
+
+        // float a = 46764.75F;
+        // int b = Convert.ToInt32(a);
+        // Console.WriteLine("After Conversation  "+b);
+        // string x = "aaj5656";
+        // int y = Convert.ToInt32(x); // Convert class throws the exception in case of failure
+        // Console.WriteLine("After Conversation  "+y);
+
+        Console.WriteLine("Enter first number in double format");
+        double a = Double.Parse(Console.ReadLine());
+        Console.WriteLine("Enter second number in double format");
+        double b = Double.Parse(Console.ReadLine());
+        long c = Convert.ToInt64(a+b);
+        Console.WriteLine("After Conversation and sum "+c);
+
+
         Console.ReadLine();
     }
 }
