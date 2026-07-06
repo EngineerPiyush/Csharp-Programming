@@ -186,3 +186,71 @@ Hello
 Welcome
 To C#
 Without @, this would cause a compilation error.
+
+========= Escape sequences 
+Escape Sequence | Description                                      | Unicode Equivalent
+----------------|--------------------------------------------------|-------------------
+\'              | Single Quote (mainly used in char literals)       | \u0027
+\"              | Double Quote (used inside strings)               | \u0022
+\\              | Backslash                                        | \u005C
+\0              | Null character                                   | \u0000
+\a              | Alert / Bell                                     | \u0007
+\b              | Backspace                                        | \u0008
+\f              | Form Feed                                        | \u000C
+\n              | New Line                                         | \u000A
+\r              | Carriage Return                                  | \u000D
+\t              | Horizontal Tab                                   | \u0009
+\v              | Vertical Tab                                     | \u000B
+\e              | Escape character (introduced in C# 13)           | \u001B
+\uXXXX          | Unicode hex escape sequence (4-digit format)     | Matches code point
+\UXXXXXXXX      | Unicode hex escape sequence (8-digit format)     | Matches code point
+\xX...          | Hexadecimal escape sequence (variable length)    | Matches code point
+
+
+=================================================================================================
+What is Data Type Conversion?
+Data Type Conversion is the process of converting a value from one data type to another.
+
+There are two main types of data conversion:
+Data Type Conversion
+│
+├── Implicit Conversion : Also called Widening Conversion , Safe Conversion , perform by compiler by default because no data will be lost.
+│
+└── Explicit Conversion (Casting) : programmer manually perform the operation for conversion possible data loses might be.
+
+========== some ways of explicit conversion .
+
+Casting 
+|
+├── Programmer explicitly tell the compiler by giving the data type
+
+Parse
+│
+├── Valid string only
+├── Returns value
+└── Throws exception if invalid
+
+TryParse
+│
+├── Validates input
+├── Returns true/false
+└── Never throws exception
+
+Convert
+│
+├── Converts many data types
+├── Handles null better
+├── Rounds numeric values
+└── Used for general-purpose conversions
+
+Note : ----
+
+Explicit Conversion
+│
+├── Casting           → Language feature
+│
+├── Convert Class     → .NET Framework class
+│
+├── Parse()           → Static method of a data type
+│
+└── TryParse()        → Static method of a data type
