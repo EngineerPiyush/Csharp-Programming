@@ -89,6 +89,32 @@ class Program{
         long c = Convert.ToInt64(a+b);
         Console.WriteLine("After Conversation and sum "+c);
 
+        // TryParse() tries to convert a string into another data type only if the string represents a valid 
+        // value of that data type.
+        // TryParse() is available for many built-in types, but the input is always a string.
+        // Examples:
+        // int.TryParse(string, out int)
+        // double.TryParse(string, out double)
+        // float.TryParse(string, out float)
+        // decimal.TryParse(string, out decimal)
+        // long.TryParse(string, out long)
+        // short.TryParse(string, out short)
+        // byte.TryParse(string, out byte)
+        // bool.TryParse(string, out bool)
+        // char.TryParse(string, out char)
+        // DateTime.TryParse(string, out DateTime)
+
+        bool success = char.TryParse("AB", out char letter);
+        Console.WriteLine(success);
+        Console.WriteLine(letter);
+
+        // bool success = int.TryParse("26" , out int age);
+        // Console.WriteLine(success);
+        // Console.WriteLine(age);
+
+        // bool success = decimal.TryParse("99.99", out decimal amount);
+        // Console.WriteLine(success);
+        // Console.WriteLine(amount);
 
         Console.ReadLine();
     }
