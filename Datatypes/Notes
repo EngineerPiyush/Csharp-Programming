@@ -254,3 +254,17 @@ Explicit Conversion
 ├── Parse()           → Static method of a data type
 │
 └── TryParse()        → Static method of a data type
+
+===========================================================================================
+Constants in C#
+To declare a constant we use const keyword .
+Sysntax  : const dataType variableName = value;
+Example :
+const double PI = 3.14159;
+Console.WriteLine(PI);
+
+We can create constant for any data type including string so :
+const string name = "piyush"; is valid.
+Note : 
+1: Please read about why string is constant here while we say string is refrence data type.
+2: What is the difference between readonly and constant.
