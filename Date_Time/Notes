@@ -1,0 +1,60 @@
+Things you need to know .....
+1. What is Formatting?
+        ↓
+2. Why do we need Format Specifiers?
+        ↓
+3. Numeric Format Specifiers
+        ↓
+4. Date and Time Formatting
+        ↓
+5. Custom Format Specifiers
+
+A Format Specifier is a predefined symbol or pattern that tells the .NET runtime how a value should be displayed as a string without changing its original value.
+Formatting never changes the original value—it only changes how that value is displayed.
+
+OR
+
+A Format Specifier is a sequence of characters passed to methods such as ToString() that controls the textual representation of numbers, dates, times, currencies, percentages, and other data types.
+
+What exactly does a Format Specifier do?
+A format specifier acts like an instruction.
+Imagine the value
+double salary = 12345.6789;
+Without formatting
+12345.6789
+With
+salary.ToString("F2")
+the format specifier "F2" tells .NET
+"Display this number in Fixed-point notation with exactly 2 digits after the decimal point."
+Output
+12345.68
+Notice:
+The value inside salary is still
+12345.6789
+Only the string representation changed.
+
+Also
+A Numeric Format Specifier is a predefined character or combination of characters that controls how a numeric value is converted into a formatted string.
+Examples include:
+Currency
+Percentage
+Fixed decimal places
+Scientific notation
+Hexadecimal
+Number with commas
+
+AND 
+
+A Date and Time Format Specifier is a predefined or custom pattern that determines how a DateTime value is converted into a human-readable string.
+For example,
+A DateTime object may represent
+28 July 2025 04:35:18 PM
+Using different format specifiers, it can be displayed as
+28/07/2025
+or
+July 28, 2025
+or
+04:35 PM
+or
+2025-07-28
+The actual date and time stored inside the object never changes.
