@@ -1,0 +1,15 @@
+F:\C# Programming\Date_Time\obj\Debug\net10.0\Date_Time.GeneratedMSBuildEditorConfig.editorconfig
+F:\C# Programming\Date_Time\obj\Debug\net10.0\Date_Time.AssemblyInfoInputs.cache
+F:\C# Programming\Date_Time\obj\Debug\net10.0\Date_Time.AssemblyInfo.cs
+F:\C# Programming\Date_Time\obj\Debug\net10.0\Date_Time.csproj.CoreCompileInputs.cache
+F:\C# Programming\Date_Time\obj\Debug\net10.0\Date_Time.sourcelink.json
+F:\C# Programming\Date_Time\bin\Debug\net10.0\Date_Time.exe
+F:\C# Programming\Date_Time\bin\Debug\net10.0\Date_Time.deps.json
+F:\C# Programming\Date_Time\bin\Debug\net10.0\Date_Time.runtimeconfig.json
+F:\C# Programming\Date_Time\bin\Debug\net10.0\Date_Time.dll
+F:\C# Programming\Date_Time\bin\Debug\net10.0\Date_Time.pdb
+F:\C# Programming\Date_Time\obj\Debug\net10.0\Date_Time.dll
+F:\C# Programming\Date_Time\obj\Debug\net10.0\refint\Date_Time.dll
+F:\C# Programming\Date_Time\obj\Debug\net10.0\Date_Time.pdb
+F:\C# Programming\Date_Time\obj\Debug\net10.0\Date_Time.genruntimeconfig.cache
+F:\C# Programming\Date_Time\obj\Debug\net10.0\ref\Date_Time.dll
