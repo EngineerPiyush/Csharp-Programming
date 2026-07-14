@@ -1,0 +1,15 @@
+F:\C# Programming\Statements\obj\Debug\net10.0\Statement.GeneratedMSBuildEditorConfig.editorconfig
+F:\C# Programming\Statements\obj\Debug\net10.0\Statement.AssemblyInfoInputs.cache
+F:\C# Programming\Statements\obj\Debug\net10.0\Statement.AssemblyInfo.cs
+F:\C# Programming\Statements\obj\Debug\net10.0\Statement.csproj.CoreCompileInputs.cache
+F:\C# Programming\Statements\obj\Debug\net10.0\Statement.sourcelink.json
+F:\C# Programming\Statements\bin\Debug\net10.0\Statement.exe
+F:\C# Programming\Statements\bin\Debug\net10.0\Statement.deps.json
+F:\C# Programming\Statements\bin\Debug\net10.0\Statement.runtimeconfig.json
+F:\C# Programming\Statements\bin\Debug\net10.0\Statement.dll
+F:\C# Programming\Statements\bin\Debug\net10.0\Statement.pdb
+F:\C# Programming\Statements\obj\Debug\net10.0\Statement.dll
+F:\C# Programming\Statements\obj\Debug\net10.0\refint\Statement.dll
+F:\C# Programming\Statements\obj\Debug\net10.0\Statement.pdb
+F:\C# Programming\Statements\obj\Debug\net10.0\Statement.genruntimeconfig.cache
+F:\C# Programming\Statements\obj\Debug\net10.0\ref\Statement.dll

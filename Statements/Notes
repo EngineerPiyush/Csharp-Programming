@@ -1,0 +1,297 @@
+=======  Satement in C# ====================
+A statement is a single instruction that tells the computer to perform a specific action.
+Example : 
+int age = 25;                 // Declaration statement
+Console.WriteLine(age);        // Method call statement
+age++;                         // Increment statement
+return;                        // Return statement
+
+==================================================================================================
+what is the difference between task and action ?
+Action : An action is a single operation or instruction performed by the program.
+Examples:
+int age = 25;
+
+Action:
+Create a variable.
+Store the value 25.
+
+Console.WriteLine("Hello");
+Action:
+Display text on the console.
+
+age++;
+Action:
+Increase the value of age by 1.
+
+Each of these performs one action.
+
+Task : A task is a complete objective achieved by combining multiple actions.
+Example:
+Suppose the task is:
+Calculate the average of three numbers.
+To complete this task, the program performs several actions:
+
+int a = 10;          // Action 1
+int b = 20;          // Action 2
+int c = 30;          // Action 3
+int sum = a + b + c; // Action 4
+int avg = sum / 3;   // Action 5
+Console.WriteLine(avg); // Action 6
+
+Together, these actions complete one task.
+
+Real-life Analogy :
+
+Imagine making tea.
+Actions :
+
+Boil water.
+Add tea leaves.
+Add sugar.
+Add milk.
+Pour into a cup.
+
+Each is one action.
+
+Task : 
+Make a cup of tea.
+The task is completed only after all the actions are performed.
+
+================================================================================================
+Block : A block is a group of zero or more statements enclosed within curly braces {} that are 
+treated as a single unit.
+
+Notice:
+A block is just a container, It doesn't have a name , It cannot be called.
+It simply groups statements together.
+Example:
+{
+    Console.WriteLine("Hello");
+    Console.WriteLine("Piyush");
+}
+This is just a block.
+
+Function (Method in C#) : A function (called a method in C#) is a named block of code that performs 
+a specific task and can be invoked (called) whenever needed.
+Example:
+static void Greet()
+{
+    Console.WriteLine("Hello");
+    Console.WriteLine("Piyush");
+}
+
+Notice:
+Greet → Name
+{} → Block
+Together → Method
+Think about it visually
+Only a Block
+{
+    int x = 10;
+    Console.WriteLine(x);
+}
+Block
+│
+├── Statement
+└── Statement
+It has no name, You cannot write MyBlock(); because a block cannot be called.
+
+A Method
+static void Greet()
+{
+    Console.WriteLine("Hello");
+}
+Method
+│
+├── Name (Greet)
+├── Parameters
+├── Return Type
+└── Block
+      │
+      └── Statements
+
+Here, the block is part of the method.
+
+
+Statements Types :
+│
+├── Declaration Statements
+├── Expression Statements
+├── Selection Statements
+├── Iteration Statements
+├── Jump Statements
+├── Exception Handling Statements
+├── Checked/Unchecked Statements
+├── Lock Statements
+├── Using Statements
+├── Yield Statements
+└── Empty Statement
+
+| Statement Type                    | Definition                                                                                                                         | Example                                                                   |
+| --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| **Declaration Statement**         | A statement used to declare a variable, constant, or other program element by specifying its name and type.                        | int age;                                                      |
+| **Expression Statement**          | A statement that executes an expression to perform an action, such as assignment, method calls, or increment/decrement operations. | age = 25;                                                     |
+| **Selection Statement**           | A statement that selects one execution path from multiple possible paths based on a condition.                                     | if(age >= 18){    Console.WriteLine("Adult");}        |
+| **Iteration Statement**           | A statement that repeatedly executes a block of code as long as a specified condition is satisfied.                                | for(int i = 1; i <= 5; i++){    Console.WriteLine(i);}  |
+| **Jump Statement**                | A statement that transfers program control from one location to another.                                                           | return;                                                       |
+| **Exception Handling Statement**  | A statement used to detect, handle, or throw exceptions that occur during program execution.                                       | try{}catch(Exception ex){}                          |
+| **Checked / Unchecked Statement** | A statement that controls whether arithmetic overflow is checked or ignored during execution.                                      | checked{    int x = int.MaxValue;}                      |
+| **Lock Statement**                | A statement that ensures only one thread can execute a block of code at a time, preventing concurrent access to shared resources.  | lock(obj){    count++;}                                 |
+| **Using Statement**               | A statement that automatically disposes of objects implementing `IDisposable` after they are no longer needed.                     | using(StreamReader sr = new StreamReader("file.txt")){} |
+| **Yield Statement**               | A statement used inside an iterator method to return one value at a time instead of returning all values at once.                  | yield return 1;                                               |
+| **Empty Statement**               | A statement that performs no action and is represented by a single semicolon (`;`).                   
+
+Operator : An operator is a symbol that instructs the compiler to perform a specific operation on one or more 
+operands and produce a result.  
+Why do we need Operators?
+Suppose you have:
+int a = 10;
+int b = 20;
+How will you add them?    
+a + b means 10+20 which is 30 
+
+Types of Operators in C# : 
+| Operator Type                         | Definition                                         | Example                         |
+| ------------------------------------- | -------------------------------------------------- | ------------------------------- |
+| **Arithmetic Operators**              | Perform mathematical calculations.                 | `a + b`                         |
+| **Relational (Comparison) Operators** | Compare two values and return `true` or `false`.   | `a > b`                         |
+| **Logical Operators**                 | Combine or manipulate Boolean expressions.         | `a > 5 && b < 10`               |
+| **Assignment Operators**              | Assign values to variables.                        | `a = 10`                        |
+| **Increment/Decrement Operators**     | Increase or decrease a value by 1.                 | `a++`                           |
+| **Conditional (Ternary) Operator**    | Select one of two values based on a condition.     | `age >= 18 ? "Adult" : "Minor"` |
+| **Bitwise Operators**                 | Perform operations directly on binary bits.        | `a & b`                         |
+| **Shift Operators**                   | Shift bits left or right.                          | `a << 1`                        |
+| **Null-Coalescing Operators**         | Provide a default value when a variable is `null`. | `name ?? "Guest"`               |
+| **Type Operators**                    | Work with types and type checking.                 | `obj is string`                 |
+
+Null-Coalescing Operator : The null-coalescing operator returns the left value if it is not null; otherwise, it 
+returns the right value.
+Example:
+string name = null;
+string result = name ?? "Guest";
+Output:
+Guest
+
+Type Operators : Type operators are used to check, convert, or obtain information about data types.
+Example:
+object obj = "Piyush";
+Console.WriteLine(obj is string);
+Output:
+True
+
+Question : With which which data type we can assign null like int age = null; string name = null; ?
+Definition of null : null is a special literal that represents the absence of a value or the absence of an object 
+reference. Now, let's answer your question.
+1. Reference Types ✅
+All reference types can be assigned null.
+Examples:
+string name = null;
+object obj = null;
+int[] numbers = null;
+List<int> list = null;
+Exception ex = null;
+Why?
+Because these variables store references (addresses). null means:
+"This variable currently doesn't refer to any object."
+2. Value Types ❌
+Normal value types cannot be assigned null.
+Examples:
+int age = null;      // ❌ Error
+double salary = null; // ❌ Error
+bool isAdmin = null;  // ❌ Error
+char grade = null;    // ❌ Error
+Why?
+Because value types store the actual value, not a reference. An int variable must always contain a valid integer.
+3. Nullable Value Types ✅
+C# provides a way to allow value types to store null.
+Syntax:
+int? age = null;
+double? salary = null;
+bool? isAdmin = null;
+char? grade = null;
+or
+Nullable<int> age = null;
+Both are exactly the same.
+Summary Table
+Data Type	Can Store null?	Example
+string	✅ Yes	string name = null;
+object	✅ Yes	object obj = null;
+Arrays	✅ Yes	int[] arr = null;
+Classes	✅ Yes	Student s = null;
+int	❌ No	int age = null;
+double	❌ No	double d = null;
+char	❌ No	char c = null;
+bool	❌ No	bool b = null;
+int?	✅ Yes	int? age = null;
+double?	✅ Yes	double? d = null;
+bool?	✅ Yes	bool? b = null;
+char?	✅ Yes	char? c = null;
+Easy Rule to Remember
+Reference Type
+        ↓
+Can store null ✅
+
+Value Type
+        ↓
+Cannot store null ❌
+
+Nullable Value Type (?)
+        ↓
+Can store null ✅
+⭐ One interesting fact
+Since you're learning deeply, here's something many beginners don't know:
+
+string name = null;
+This does not create an empty string.
+There's a big difference between:
+
+string a = null;
+string b = "";
+null → No string object is referenced.
+"" → A real string object exists, but it contains zero characters.
+
+Tyeps of Selection Statement :
+if Statements
+│
+├── Simple if
+├── if-else
+├── if-else-if Ladder (same as if-else-if)
+├── Nested if / Nested if-else
+└── Multiple Independent if Statements
+&
+Switch Statement .
+
+Below are the things in more details about statements ..
+Statements
+│
+├── Declaration Statements
+├── Expression Statements
+├── Selection Statements
+│     ├── if
+│     └── switch
+│
+├── Iteration Statements
+│     ├── for
+│     ├── foreach
+│     ├── while
+│     └── do-while
+│
+├── Jump Statements
+│     ├── break
+│     ├── continue
+│     ├── return
+│     ├── goto
+│     └── throw
+│
+├── Exception Handling Statements
+│     ├── try
+│     ├── catch
+│     ├── finally
+│     └── throw
+│
+├── Checked/Unchecked Statements
+├── Lock Statement
+├── Using Statement
+├── Yield Statement
+└── Empty Statement
