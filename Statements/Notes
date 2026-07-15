@@ -295,3 +295,230 @@ Statements
 ├── Using Statement
 ├── Yield Statement
 └── Empty Statement
+
+// Switch Statement 
+A switch statement is a selection statement that evaluates an expression and executes the block of code associated
+with the first matching case. If no case matches, the optional default block is executed.
+A switch statement is used instead of multiple independent if-else-if comparisons when all the conditions are 
+checking the same variable against fixed values.
+but
+There are many situations where if-else-if is better than switch.
+========================================= Rule of Thumb =======================================================
+Use switch when:
+You are comparing ONE variable against MANY FIXED VALUES.
+Example:
+int month = 3;
+switch (month)
+{
+    case 1:
+        Console.WriteLine("January");
+        break;
+
+    case 2:
+        Console.WriteLine("February");
+        break;
+
+    case 3:
+        Console.WriteLine("March");
+        break;
+}
+Perfect use case.
+Use if-else-if when:
+
+1. You have ranges
+int marks = 82;
+if (marks >= 90)
+{
+    Console.WriteLine("Grade A");
+}
+else if (marks >= 75)
+{
+    Console.WriteLine("Grade B");
+}
+else if (marks >= 60)
+{
+    Console.WriteLine("Grade C");
+}
+else
+{
+    Console.WriteLine("Fail");
+}
+Can you write this using a basic switch?
+❌ No.
+
+2. Multiple variables are involved
+if (age >= 18 && hasLicense)
+{
+    Console.WriteLine("Can Drive");
+}
+Here you're checking
+age
+hasLicense
+A basic switch works with one expression, not arbitrary Boolean logic.
+
+3. Complex Boolean expressions
+if ((salary > 50000 && experience > 5) || isManager)
+{
+    Console.WriteLine("Eligible");
+}
+Again,
+❌ A normal switch isn't a natural fit.
+
+4. Different variables in different conditions
+if (age > 18)
+{
+}
+else if (salary > 50000)
+{
+}
+else if (country == "India")
+{
+}
+Notice every condition is different.
+A switch cannot naturally express this.
+When switch is clearly better ?
+Suppose you're building a calculator.
+char op = '+';
+
+Using if ..
+if (op == '+')
+{
+}
+else if (op == '-')
+{
+}
+else if (op == '*')
+{
+}
+else if (op == '/')
+{
+}
+
+Using switch ..
+switch (op)
+{
+    case '+':
+        break;
+
+    case '-':
+        break;
+
+    case '*':
+        break;
+
+    case '/':
+        break;
+}
+The switch version is:
+Cleaner
+Easier to read
+Easier to maintain.
+
+Real-world examples
+Example 1 – Login Role
+switch(role)
+{
+    case "Admin":
+        ...
+        break;
+
+    case "User":
+        ...
+        break;
+
+    case "Guest":
+        ...
+        break;
+}
+Perfect for switch.
+
+Example 2 – Tax Calculation
+if (income <= 300000)
+{
+}
+else if (income <= 700000)
+{
+}
+else if (income <= 1200000)
+{
+}
+Perfect for if-else-if.
+
+Note : 
+switch gives the compiler an opportunity to optimize the decision-making process. Depending on the number and 
+pattern of case values, the compiler may use a jump table, a lookup table, or a sequence of comparisons. 
+Therefore, switch is often—but not always—more efficient than a long if-else-if chain.
+
+For example :
+If you have
+switch(day)
+{
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+}
+the compiler may generate something like a jump table.
+
+But suppose your cases are :
+case 1:
+case 2:
+case 100:
+case 1000:
+case 100000:
+A jump table would waste a huge amount of memory.
+So the compiler may instead generate comparisons internally.
+
+Because :
+Instead of
+1
+2
+3
+4
+
+The compiler would have to make
+1 ✔
+2 ✔
+3 ✘
+4 ✘
+5 ✘
+6 ✘
+7 ✘
+...
+99 ✘
+100 ✔
+101 ✘
+...
+1000 ✔
+...
+100000 ✔
+
+Almost every slot is empty.
+How much memory?
+Suppose each entry uses only 8 bytes.
+A jump table for
+100000 entries
+would need roughly
+100000 × 8
+=
+800000 bytes
+≈ 781 KB
+
+Just to represent 5 cases.
+That is a huge waste.
+
+Note : -
+Modern C# supports switching on many types, including:
+int
+char
+string
+enum
+
+Also :
+Every case in a C# switch must end with:
+✔ break;
+✔ return;
+✔ throw;
+✔ goto case;
+✔ goto default;
+even in C# this appliles to default (used in case of no match) as well , unlike C or C++ .
