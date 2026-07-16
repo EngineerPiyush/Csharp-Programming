@@ -522,3 +522,202 @@ Every case in a C# switch must end with:
 ✔ goto case;
 ✔ goto default;
 even in C# this appliles to default (used in case of no match) as well , unlike C or C++ .
+
+// Jump statement in C#
+A jump statement is a statement that immediately transfers program control from one location to another, 
+altering the normal sequential flow of execution.
+
+1. break : The break statement immediately terminates the nearest enclosing loop or switch statement and 
+transfers control to the statement following it.
+Example :
+for(int i = 1; i <= 10; i++)
+{
+    if(i == 5)
+        break;
+    Console.WriteLine(i);
+}
+Output :
+1
+2
+3
+4
+Control jumps outside the loop.
+
+2. continue : The continue statement skips the remaining statements in the current iteration and immediately 
+starts the next iteration of the loop.
+Example :
+for(int i = 1; i <= 5; i++)
+{
+    if(i == 3)
+        continue;
+    Console.WriteLine(i);
+}
+Output :
+1
+2
+4
+5
+Only the current iteration is skipped.
+
+3. return : The return statement immediately terminates the current method and optionally returns a value 
+to the caller.
+Example :
+static int Add()
+{
+    return 10 + 20;
+}
+The method ends immediately after return.
+
+4. goto : The goto statement transfers control directly to a labeled statement or another case within a switch 
+statement.
+Example :
+
+goto Start;
+Console.WriteLine("Hello");
+Start:
+Console.WriteLine("Welcome");
+
+Output :
+Welcome
+Execution jumps directly to the label.
+
+5. throw : 
+The throw statement throws an exception and immediately transfers control to the nearest matching exception handler.
+Example :
+throw new Exception("Invalid Input");
+The program stops normal execution and looks for a catch block.
+
+Note : - Most professional C# developers avoid goto because it can make code harder to read and maintain, 
+though it has a few legitimate uses (especially goto case inside a switch).
+
+Example :
+int number = 10;
+switch (number)
+{
+    case 1:
+        Console.WriteLine("One");
+        break;
+
+    case 10:
+        goto default;
+
+    default:
+        Console.WriteLine("Unknown Number");
+        break;
+}
+You can use goto for normal case as well as default .
+
+// rest staements are given below ..
+1. Checked / Unchecked Statements : checked and unchecked statements control whether arithmetic overflow is 
+detected during integral-type calculations.
+Why do we need them?
+Suppose a byte can store only 0–255.
+byte a = 255;
+byte b = 1;
+What should happen when we add them?
+255 + 1 = 256
+A byte cannot store 256.
+Should the program:
+Throw an error? ✅ (checked)
+Ignore it and wrap around? ✅ (unchecked)
+That's what these statements control.
+Example :
+checked
+{
+    byte a = 255;
+    byte b = 1;
+    byte c = (byte)(a + b);   // OverflowException
+}
+unchecked
+{
+    byte a = 255;
+    byte b = 1;
+    byte c = (byte)(a + b);
+
+    Console.WriteLine(c);
+}
+Output :
+0
+
+2. Lock Statement : The lock statement ensures that only one thread at a time can execute a critical section of code.
+Why do we need it?
+Imagine two users transferring money from the same bank account at the exact same time.
+Without lock:
+Balance = 10000
+User A withdraws 5000
+User B withdraws 7000
+↓
+Final Balance becomes incorrect
+
+With lock :
+User A finishes
+↓
+User B starts
+Example :
+lock(balanceLock)
+{
+    balance -= amount;
+}
+
+3. Using Statement : The using statement automatically disposes objects that use unmanaged resources after 
+their work is complete.
+Why?
+Suppose you open a file. If you forget to close it, memory stays occupied file remains locked Instead
+using(StreamReader reader = new StreamReader("data.txt"))
+{
+    Console.WriteLine(reader.ReadToEnd());
+}
+After the block finishes,
+reader.Dispose();
+is called automatically.
+Very common with:
+Files
+Database Connections
+Network Streams
+
+
+4. Yield Statement : The yield statement returns elements one at a time from an iterator instead of returning 
+the entire collection at once.
+Don't worry if this sounds confusing—it usually clicks after you learn collections and iterators.
+Normal Method :
+return list;
+Everything is returned at once.
+
+with Yield :
+yield return 1;
+yield return 2;
+yield return 3;
+
+The values come one by one.
+Example :
+public static IEnumerable<int> Numbers()
+{
+    yield return 1;
+    yield return 2;
+    yield return 3;
+}
+Usage :
+foreach(var n in Numbers())
+{
+    Console.WriteLine(n);
+}
+Output
+1
+2
+3
+5.
+
+Empty Statement : An empty statement is a statement that performs no action. It is represented by a single semicolon (;).
+Example :
+;
+Yes...
+This is actually a valid statement.
+
+Another example :
+while(Console.ReadLine() != "exit")
+{
+}
+or
+while(Console.ReadLine() != "exit");
+Here the semicolon means
+Do nothing  until the condition becomes false.
