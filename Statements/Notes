@@ -721,3 +721,44 @@ or
 while(Console.ReadLine() != "exit");
 Here the semicolon means
 Do nothing  until the condition becomes false.
+
+
+Exception Handling Statements : 
+Exception handling statements are statements used to detect, handle, and recover from runtime errors so that the 
+program can continue executing normally instead of terminating unexpectedly.
+
+Why do we need Exception Handling?
+Suppose your program asks the user for age.
+Console.Write("Enter Age: ");
+int age = Convert.ToInt32(Console.ReadLine());
+User enters:
+Piyush
+Instead of
+25
+What happens?
+Without exception handling
+Program Starts
+↓
+User enters "Piyush"
+↓
+FormatException
+↓
+Program Crashes ❌
+
+Imagine this in.....
+Banking software
+Hospital software
+Railway reservation
+A crash is unacceptable 😁 users can play.
+
+
+With Exception Handling ....
+Program Starts
+↓
+User enters wrong input
+↓
+Handle Error
+↓
+Show Friendly Message
+↓
+Program Continues
