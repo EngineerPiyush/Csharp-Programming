@@ -1,2 +1,195 @@
 ===========================Arrays=========================================================================
-An array is a collection of elements of single data type
+An array is a collection of elements of similar data type under a single name stored in contiguous memory 
+locations and accessed using an index.
+
+Characterstics of an array : 
+1: Same Data Type
+2: Contigeous Memory allocation
+3: Fixed Size
+4: Zero Based Indexing
+
+We can create an array in three ways in C# .....
+
+1: When we know the size but don't know the values yet then we use.
+int[] arr = new int[5];
+
+2: When the values are already known then we use.
+string[] months =
+{
+    "Jan",
+    "Feb",
+    "Mar"
+};
+
+3: 
+int[] arr = new int[]
+{
+    10,
+    20,
+    30
+};
+At first glance it seems unnecessary. But here's where it becomes useful.
+
+Scenario 1: Passing an array directly to a method :
+static void Print(int[] numbers)
+{
+    foreach(int number in numbers){
+        Console.WriteLine(number);
+    }
+}
+Print(new int[]{10, 20, 30});
+
+Scenario 2: Conditional assignment :
+int[] arr;
+if(condition)
+{
+    arr = new int[] {1,2,3};
+}
+else
+{
+    arr = new int[] {4,5,6};
+}
+
+Why do scripting languages allow mixed-type arrays while languages like C# usually require the same data type ?
+First, a small correction:
+It's not "scripting language vs programming language."
+There are scripting languages that support typed arrays, and programming languages that support heterogeneous collections.
+
+The real difference is usually:
+Dynamically typed languages vs Statically typed languages.
+
+JavaScript :
+let arr = [10, "Piyush", true, 5.6];
+Perfectly valid.
+
+C#
+int[] arr = {10, "Piyush", true};
+❌ Compile-time error.
+Why?
+Let's think like a computer.
+
+C# 
+Suppose :
+int[] arr = {10,20,30};
+The compiler knows
+Every element = int
+↓
+Every element = 4 bytes
+↓
+Memory layout :
+10
+20
+30
+
+This allows:
+Very fast indexing
+Less memory
+Compile-time checking
+CPU optimizations
+
+JavaScript 
+let arr = [10,"Piyush",true];
+Now the engine cannot assume
+Index 0 → int
+Index 1 → string
+Index 2 → bool
+
+Internally it's more like
+Reference
+↓
+Object
+↓
+Actual Value
+
+Every element carries type information. That flexibility costs :
+More memory
+More runtime checks
+More complex optimizations
+
+So what is the biggest reason?
+Not security.
+The biggest reason is performance and predictability.
+
+In C#, arrays are commonly categorized into 4 main types.
+| Type                                                 | Syntax                   | Description                                                                              |
+| ---------------------------------------------------- | ------------------------ | ---------------------------------------------------------------------------------------- |
+| **1. Single-Dimensional Array**                      | `int[]`                  | Stores elements in one row 
+(linear collection).                                          |
+| **2. Multidimensional Array**                        | `int[,]`, `int[,,]`      | Stores elements in two or more dimensions (rectangular table).                           |
+| **3. Jagged Array**                                  | `int[][]`                | An array of arrays where each inner array can have a different length.                   |
+| **4. Jagged Multidimensional Array** *(less common)* | `int[][,]` or `int[,][]` | A combination of jagged and multidimensional arrays. Used only in specialized scenarios. |
+
+⭐ One thing you may not know :
+An array can store any data type, not just primitive types.
+For example:
+
+string[] names;
+Student[] students;
+Employee[] employees;
+object[] items;
+
+So int[] is just one example. The element type can be any valid C# type, including your own custom classes. This is why arrays are a very general feature in C#.
+
+================ Some common properties and methods .......................
+
+In C#, not everything that looks like an array method actually belongs to the array object.
+There are three categories:
+
+Properties of an array (Length, Rank)
+Instance methods inherited from System.Array (Clone(), CopyTo(), etc.)
+Static methods of the Array class (Sort(), Reverse(), IndexOf(), etc.)
+
+1 : int[] arr = {10,20,30,40}; Console.WriteLine(arr.Length); 
+Returns the total number of elements in the array.
+
+2: int[,] matrix = new int[3,4]; Console.WriteLine(matrix.Rank);
+Returns the number of dimensions of an array.
+
+3: int[,] matrix = new int[3,4]; Console.WriteLine(matrix.GetLength(1));
+Returns the length of a specific dimension.
+
+4: int[] arr = {5,2,8,1}; Array.Sort(arr); 
+
+5: int[] arr = {5,2,8,1}; Array.Reverse(arr); 
+Reverses the order of elements in an array.
+
+6: int[] arr = {10,20,30}; Console.WriteLine(Array.IndexOf(arr,30));
+Returns the index of the first occurrence of an element.
+
+7: int[] arr = {10,20,10,30}; Console.WriteLine(Array.LastIndexOf(arr,10));
+Returns the index of the last occurrence of an element.
+
+8: int[] source = {1,2,3}; int[] destination = new int[3]; Array.Copy(source,destination,3);
+Copies elements from one array to another.
+
+9: int[] arr = {10,20,30}; int[] copy = (int[])arr.Clone();
+Creates a shallow copy of the entire array.
+
+10: int[] arr = {10,20,30}; Array.Clear(arr,0,2);
+Sets a range of array elements to their default values.
+
+11: bool found = Array.Exists(arr, x => x > 20);
+Checks whether any element satisfies a condition.
+
+12: int value = Array.Find(arr, x => x > 20);
+Returns the first matching element.
+
+13: int[] even = Array.FindAll(arr, x => x % 2 == 0);
+Returns all matching elements.
+
+14: Array.BinarySearch(arr,30); 
+Searches a sorted array efficiently.
+
+⭐ One thing many C# developers don't know
+Notice these two calls:
+
+arr.Clone();
+and
+Array.Sort(arr);
+
+Why aren't they both written the same way ?
+Because:
+Clone() is an instance method inherited by every array object from System.Array, so you call it on the array itself.
+Sort(), Reverse(), Copy(), IndexOf(), and many others are static methods of the Array class. They operate on arrays that you pass as arguments rather than on a single array instance.
+
+This distinction between instance members and static utility methods is common throughout the .NET Base Class Library and is worth understanding early.
