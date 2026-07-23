@@ -1,0 +1,15 @@
+F:\C# Programming\LearningArrays\obj\Debug\net10.0\LearningArrays.GeneratedMSBuildEditorConfig.editorconfig
+F:\C# Programming\LearningArrays\obj\Debug\net10.0\LearningArrays.AssemblyInfoInputs.cache
+F:\C# Programming\LearningArrays\obj\Debug\net10.0\LearningArrays.AssemblyInfo.cs
+F:\C# Programming\LearningArrays\obj\Debug\net10.0\LearningArrays.csproj.CoreCompileInputs.cache
+F:\C# Programming\LearningArrays\obj\Debug\net10.0\LearningArrays.sourcelink.json
+F:\C# Programming\LearningArrays\bin\Debug\net10.0\LearningArrays.exe
+F:\C# Programming\LearningArrays\bin\Debug\net10.0\LearningArrays.deps.json
+F:\C# Programming\LearningArrays\bin\Debug\net10.0\LearningArrays.runtimeconfig.json
+F:\C# Programming\LearningArrays\bin\Debug\net10.0\LearningArrays.dll
+F:\C# Programming\LearningArrays\bin\Debug\net10.0\LearningArrays.pdb
+F:\C# Programming\LearningArrays\obj\Debug\net10.0\LearningArrays.dll
+F:\C# Programming\LearningArrays\obj\Debug\net10.0\refint\LearningArrays.dll
+F:\C# Programming\LearningArrays\obj\Debug\net10.0\LearningArrays.pdb
+F:\C# Programming\LearningArrays\obj\Debug\net10.0\LearningArrays.genruntimeconfig.cache
+F:\C# Programming\LearningArrays\obj\Debug\net10.0\ref\LearningArrays.dll
